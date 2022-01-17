@@ -2,7 +2,7 @@ export default [
     {
     id: 1,
     firm: 'Microsoft',
-    timestamp: "12/21/2021",
+    timestamp: "2022-01-12",
     via: "Linkedin",
     job: "Développeur Full stack",
     comment: "pas de réponse",
@@ -11,7 +11,7 @@ export default [
     {
     id: 2,
     firm: 'Microsoft',
-    timestamp: "12/21/2021",
+    timestamp: "2022-01-12",
     via: "Choose your boss",
     job: "Développeur Front end",
     comment: "annonce reçue",
@@ -20,7 +20,7 @@ export default [
     {
     id: 3,
     firm: 'Microsoft',
-    timestamp: "12/21/2021",
+    timestamp: "2022-01-12",
     via: "Choose your boss",
     job: "Développeur Front end",
     comment: "annonce reçue",

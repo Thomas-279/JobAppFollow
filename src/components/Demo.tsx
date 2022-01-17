@@ -1,48 +1,52 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
+import { FiTrash } from 'react-icons/fi'
 
 import { DemoContext } from "../Context/DemoContext";
 
+import CustomInput from "./shared/CustomInput";
+import CustomRow from './shared/CustomRow';
+
 const Demo = () => {
-    const [openInput, setOpenInput] = useState(false);
     // const data = useFetch()
     const { data, setData } = useContext(DemoContext);
 
+    const removeItem = (id: string) => {
+        const removeIndex = data.filter((item: any) => {return item.id !== id});
+        setData(removeIndex)
+    }
+
     return (
-        <div className='w-full'>
-            <div className="flex flex-col w-full bg-transparent white-glassmorphism">
-                <button className="text-lg text-gray-200 m-5" onClick={() => setOpenInput(!openInput)}>Ajouter une recherche</button>
-                {openInput && 
-                    <div className="w-full flex flex-row justify-between">
-                        <input type="date" placeholder="date" className="w-96 mx-2 bg-transparent white-glassmorphism text-white" />
-                        <input type="text" placeholder="Société" className="w-96 mx-2 bg-transparent white-glassmorphism text-white" />
-                        <input type="text" placeholder="Via plateforme" className="w-96 mx-2 bg-transparent white-glassmorphism text-white" />
-                        <input type="text" placeholder="Poste" className="w-96 mx-2 bg-transparent white-glassmorphism text-white" />
-                        <input type="text" placeholder="Commentaire" className="w-96 mx-2 bg-transparent white-glassmorphism text-white" />
-                        <button className="bg-red-400 text-white mx-2">Sauvegarder</button>
-                    </div>
-                }
-            </div>
+        <div className='w-10/12 white-glassmorphism'>
+            <CustomInput />
             <div className="h-[1px] w-full bg-gray-400 my-2" />
-            <div className="flex flex-col w-full h-full bg-transparent white-glassmorphism">
-                {data.map((item) => (
-                    <div key={item.id} className="flex flex-col w-full h-1/6">
-                        <div className="w-full flex flex-row justify-between p-2 text-white">
-                            <p className='w-20 mx-2'>{item.id}</p>
-                            <div className='w-64 mx-2'>{item.timestamp}</div>
-                            <div className='w-64 mx-2'>{item.firm}</div>
-                            <div className='w-64 mx-2'>{item.via}</div>
-                            <div className='w-64 mx-2'>{item.job}</div>
-                            <div className='w-64 mx-2'>{item.comment}</div>
-                            {item.status === "waiting" && <p className='w-64 mx-2'>{item.status}</p>}
-                            {item.status === "refused" && <p className='w-64 mx-2'>{item.status}</p>}
-                            {item.status === "accepted" && <p className='w-64 mx-2'>{item.status}</p>}
-                            <button className="text-red-600 text-white mx-2">Modifier</button>
-                            <button className="text-red-600 text-white mx-2">Supprimer</button>
-                        </div>
-                    </div>
-                ))}
+            <div className="flex flex-col w-full h-full">
+                <table className="flex flex-col w-full h-1/6 text-white">
+                    <thead>
+                        <tr className="w-full flex flex-row justify-between">
+                            <th className='w-1/12 mx-2'>Numéro</th>
+                            <th className='w-2/12 mx-2'>Date</th>
+                            <th className='w-2/12 mx-2'>Société</th>
+                            <th className='w-2/12 mx-2'>Via plateforme</th>
+                            <th className='w-2/12 mx-2'>Job</th>
+                            <th className='w-4/12 mx-2'>Commentaire</th>
+                            <th className='w-2/12 mx-2'>Statut</th>
+                            <th className='w-1/12 mx-2'>Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody className="flex flex-col w-full h-1/6">
+                        {data.map((item: any) => (
+                            <tr key={item.id}>
+                                <td className="w-full flex flex-row justify-between p-2 text-white">
+                                    <CustomRow item={item}/>
+                                    
+                                    <FiTrash size={27} onClick={() => removeItem(item.id)} />
+                                    
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
-            
         </div>
     )
 }
