@@ -7,7 +7,7 @@ const CustomRow = ({ item }: any) => {
     return (
         <>
             <div className='w-1/12 mx-2'>{item.id}</div>
-            <div className='w-2/12 mx-2'>{item.timestamp}</div>
+            <div className='w-2/12 mx-2'>{item.date}</div>
             <div className='w-2/12 mx-2'>{item.firm}</div>
             <div className='w-2/12 mx-2'>{item.via}</div>
             <div className='w-2/12 mx-2'>{item.job}</div>
