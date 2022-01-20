@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
-import { FiTrash } from 'react-icons/fi'
 
 import { DemoContext } from "../Context/DemoContext";
 
 import CustomInput from "./shared/CustomInput";
 import CustomRow from './shared/CustomRow';
+import { darkModeProps } from '../components/utils/types';
 
-const Demo = () => {
-    // const data = useFetch()
+const Demo = ({ darkMode }: darkModeProps) => {
     const { data, setData } = useContext(DemoContext);
 
     const removeItem = (id: string) => {
@@ -16,32 +15,28 @@ const Demo = () => {
     }
 
     return (
-        <div className='w-10/12 white-glassmorphism'>
-            <CustomInput />
+        <div className={`w-10/12 ${darkMode ? 'white-glassmorphism' : 'blue-glassmorphism'}`}>
+            <CustomInput darkMode={darkMode} />
             <div className="h-[1px] w-full bg-gray-400 my-2" />
             <div className="flex flex-col w-full h-full">
-                <table className="flex flex-col w-full h-1/6 text-white">
-                    <thead>
-                        <tr className="w-full flex flex-row justify-between">
-                            <th className='w-1/12 mx-2'>Numéro</th>
-                            <th className='w-2/12 mx-2'>Date</th>
-                            <th className='w-2/12 mx-2'>Société</th>
-                            <th className='w-2/12 mx-2'>Via plateforme</th>
-                            <th className='w-2/12 mx-2'>Job</th>
-                            <th className='w-4/12 mx-2'>Commentaire</th>
-                            <th className='w-2/12 mx-2'>Statut</th>
-                            <th className='w-1/12 mx-2'>Supprimer</th>
+                <table className="flex flex-col w-full h-1/6">
+                    <thead className="flex flex-col w-full">
+                        <tr className="w-full flex flex-row justify-between items-center text-sm md:text-base">
+                            <th className='w-1/12'>Numéro</th>
+                            <th className='w-1/12'>Date</th>
+                            <th className='w-1/12'>Société</th>
+                            <th className='w-2/12'>Via plateforme</th>
+                            <th className='w-2/12'>Job</th>
+                            <th className='w-2/12'>Commentaire</th>
+                            <th className='w-1/12'>Statut</th>
+                            <th className='w-1/12'>Actions</th>
                         </tr>
+                        <tr className="h-[1px] w-full bg-gray-400 my-2" />
                     </thead>
-                    <tbody className="flex flex-col w-full h-1/6">
+                    <tbody className="flex flex-col w-full h-1/6 mt-5 mb-5">
                         {data.map((item: any) => (
-                            <tr key={item.id}>
-                                <td className="w-full flex flex-row justify-between p-2 text-white">
-                                    <CustomRow item={item}/>
-                                    
-                                    <FiTrash size={27} onClick={() => removeItem(item.id)} />
-                                    
-                                </td>
+                            <tr key={item.id} className="w-full flex flex-row justify-between">
+                                <CustomRow item={item} onRemove={removeItem} />
                             </tr>
                         ))}
                     </tbody>

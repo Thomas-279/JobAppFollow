@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 
 import { DemoProvider } from './Context/DemoContext';
+import { ThemeProvider } from './Context/ThemeContext';
 
 ReactDOM.render(
-  <DemoProvider>
     <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </DemoProvider>,
+      <ThemeProvider>
+        <DemoProvider>
+          <App />
+        </DemoProvider>
+      </ThemeProvider>
+    </React.StrictMode>,
   document.getElementById('root')
 );
