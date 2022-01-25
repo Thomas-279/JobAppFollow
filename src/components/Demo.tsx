@@ -1,13 +1,15 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 
-import { DemoContext } from "../Context/DemoContext";
+import dummyData from '../components/utils/dummyData';
 
 import CustomInput from "./shared/CustomInput";
 import CustomRow from './shared/CustomRow';
 import { darkModeProps } from '../components/utils/types';
 
 const Demo = ({ darkMode }: darkModeProps) => {
-    const { data, setData } = useContext(DemoContext);
+    const [data, setData] = useState(dummyData);
+
+
 
     const removeItem = (id: string) => {
         const removeIndex = data.filter((item: any) => {return item.id !== id});
@@ -15,8 +17,8 @@ const Demo = ({ darkMode }: darkModeProps) => {
     }
 
     return (
-        <div className={`w-10/12 ${darkMode ? 'white-glassmorphism' : 'blue-glassmorphism'}`}>
-            <CustomInput darkMode={darkMode} />
+        <div className={`w-11/12 ${darkMode ? 'white-glassmorphism' : 'blue-glassmorphism'}`}>
+            <CustomInput darkMode={darkMode} data={data} setData={setData} />
             <div className="h-[1px] w-full bg-gray-400 my-2" />
             <div className="flex flex-col w-full h-full">
                 <table className="flex flex-col w-full h-1/6">

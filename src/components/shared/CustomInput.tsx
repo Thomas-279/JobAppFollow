@@ -1,9 +1,19 @@
-import React, { useContext} from 'react';
-import { DemoContext } from "../../Context/DemoContext";
+import React, { useState } from 'react';
+import { objectValueProps } from '../utils/types';
 import { darkModeProps } from '../utils/types';
 
-const CustomInput = ({ darkMode }: darkModeProps) => {
-    const { data, setData, openInput, setOpenInput, objectValue, setObjectValue } = useContext(DemoContext);
+const CustomInput = ({data, setData}: any, darkMode: darkModeProps) => {
+    const [openInput, setOpenInput] = useState<Boolean>(false);
+    const [objectValue, setObjectValue] = useState<objectValueProps>({
+            id: '',
+            firm: '',
+            date: '',
+            via: '',
+            job: '',
+            comment: '',
+            status: 'waiting',
+        },
+    );
 
     function handleChange(e: any) {
         const value = e.target.value;
@@ -20,6 +30,15 @@ const CustomInput = ({ darkMode }: darkModeProps) => {
             ...data,
             {...objectValue}
         ])
+        setObjectValue({
+            id: '',
+            firm: '',
+            date: '',
+            via: '',
+            job: '',
+            comment: '',
+            status: 'waiting',
+        },)
     };
 
     return (

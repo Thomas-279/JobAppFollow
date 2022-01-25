@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-import { DemoProvider } from './Context/DemoContext';
 import { ThemeProvider } from './Context/ThemeContext';
+import { CurrentUserProvider } from './Context/CurrentUserContext';
 
 ReactDOM.render(
     <React.StrictMode>
-      <ThemeProvider>
-        <DemoProvider>
-          <App />
-        </DemoProvider>
-      </ThemeProvider>
+      <CurrentUserProvider>
+        <ThemeProvider>
+            <App />
+        </ThemeProvider>
+      </CurrentUserProvider>
     </React.StrictMode>,
   document.getElementById('root')
 );

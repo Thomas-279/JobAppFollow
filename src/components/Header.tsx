@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import { GiBookshelf } from 'react-icons/gi';
 import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
 import { ThemeContext } from "../Context/ThemeContext";
+import { CurrentUserContext } from '../Context/CurrentUserContext';
 
 const Header = () => {
     const theme = useContext(ThemeContext);
     const darkMode = theme.state.darkMode;
+    const { currentUser, handleLogout } = useContext(CurrentUserContext);
 
     const onChangeMode = () => {
         if (darkMode) {
@@ -30,9 +32,15 @@ const Header = () => {
                     <li className='text-xl font-semibold mx-4 cursor-pointer'>
                         <Link to='/demo'>Demo</Link>
                     </li>
-                    <li className='text-xl font-semibold mx-4 cursor-pointer'>
-                        <Link to='/login'>Connexion</Link>
-                    </li>
+                    {currentUser != null ? (
+                        <li className='text-xl font-semibold mx-4 cursor-pointer'>
+                            <button onClick={handleLogout}>Déconnexion</button>
+                        </li>
+                    ) : (
+                        <li className='text-xl font-semibold mx-4 cursor-pointer'>
+                            <Link to='/login'>Connexion</Link>
+                        </li>
+                    ) }
                 </ul>
                 <div className="w-1/6 flex flex-row justify-end items-center">
                     <BsFillMoonFill color="grey" size={20} />

@@ -12,7 +12,6 @@ function App() {
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
 
-  // ${darkMode ? "bg-red-400" : "bg-white"}
   return (
     <Router>
       <div className={`flex flex-col h-screen ${darkMode ? 'gradient-bg-welcome text-gray-50' : 'gradient-lightMode text-gray-200' }`}>
