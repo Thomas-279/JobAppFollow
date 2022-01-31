@@ -26,18 +26,24 @@ const Header = () => {
                 </div>
                 
                 <ul className={`md:flex hidden list-none flex-row justify-between items-center flex-initial ${darkMode ? 'text-gray-50' : 'text-gray-900'}`}>
-                    <li className='text-xl font-semibold mx-4 cursor-pointer'>
+                    <li className='text-xl font-semibold mx-4 cursor-pointer hover:border-b hover:border-white'>
                         <Link to='/'>Accueil</Link>
                     </li>
-                    <li className='text-xl font-semibold mx-4 cursor-pointer'>
-                        <Link to='/demo'>Demo</Link>
-                    </li>
-                    {currentUser != null ? (
-                        <li className='text-xl font-semibold mx-4 cursor-pointer'>
-                            <button onClick={handleLogout}>Déconnexion</button>
+                    {currentUser?.isAuthenticated ? (
+                        <li className='text-xl font-semibold mx-4 cursor-pointer hover:border-b hover:border-white'>
+                            <Link to='/jobsearch'>Mes recherches</Link>
+                        </li>) :
+                        (
+                        <li className='text-xl font-semibold mx-4 cursor-pointer hover:border-b hover:border-white'>
+                            <Link to='/demo'>Demo</Link>
+                        </li>
+                        )}
+                    {currentUser?.isAuthenticated ? (
+                        <li className='text-xl font-semibold mx-4 cursor-pointer hover:border-b hover:border-white'>
+                            <Link to="/login" onClick={handleLogout}>Déconnexion</Link>
                         </li>
                     ) : (
-                        <li className='text-xl font-semibold mx-4 cursor-pointer'>
+                        <li className='text-xl font-semibold mx-4 cursor-pointer hover:border-b hover:border-white'>
                             <Link to='/login'>Connexion</Link>
                         </li>
                     ) }

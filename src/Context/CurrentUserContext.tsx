@@ -2,7 +2,9 @@ import React, { createContext, useEffect, useState } from "react";
 
 export type UserType = {
     email: string,
-    password: string
+    name: string,
+    status: string,
+    isAuthenticated: boolean
 }
 export type UserContextType = {
     currentUser?: UserType,

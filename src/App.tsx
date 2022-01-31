@@ -5,12 +5,14 @@ import {
   Routes
 } from "react-router-dom";
 import { ThemeContext } from "./Context/ThemeContext";
+import { CurrentUserContext } from './Context/CurrentUserContext';
 
-import { Header, Demo, Footer, Home, Login } from './components';
+import { Header, Demo, Footer, Home, Login, JobSearch, Error } from './components';
 
 function App() {
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
+  const { currentUser } = useContext(CurrentUserContext);
 
   return (
     <Router>
@@ -22,6 +24,10 @@ function App() {
               <Route path='/' element={<Home darkMode={darkMode} />} />
               <Route path='/demo' element={<Demo darkMode={darkMode} />} />
               <Route path='/login' element={<Login darkMode={darkMode} />} />
+              {currentUser?.isAuthenticated && 
+                <Route path='/jobsearch' element={<JobSearch darkMode={darkMode} />} />
+              }
+              <Route path='/*' element={<Error darkMode={darkMode} />} />
             </Routes>
             <Footer />
           </div>
