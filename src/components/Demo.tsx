@@ -9,15 +9,13 @@ import { darkModeProps } from '../components/utils/types';
 const Demo = ({ darkMode }: darkModeProps) => {
     const [data, setData] = useState(dummyData);
 
-
-
     const removeItem = (id: string) => {
         const removeIndex = data.filter((item: any) => {return item.id !== id});
         setData(removeIndex)
-    }
+    };
 
     return (
-        <div className={`w-11/12 ${darkMode ? 'white-glassmorphism' : 'blue-glassmorphism'}`}>
+        <div className={`w-11/12 ${darkMode ? 'darkbluebg' : 'darkbluebg'}`}>
             <CustomInput darkMode={darkMode} data={data} setData={setData} />
             <div className="h-[1px] w-full bg-gray-400 my-2" />
             <div className="flex flex-col w-full h-full">

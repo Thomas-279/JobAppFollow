@@ -11,3 +11,9 @@ export interface objectValueProps {
 export interface darkModeProps {
     darkMode: boolean
 }
+
+export interface UserForm {
+    isSubmitting: boolean;
+    email: string;
+    password: string;
+};

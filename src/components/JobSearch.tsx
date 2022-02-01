@@ -16,20 +16,26 @@ const JobSearch = ({ darkMode }: darkModeProps) => {
     };
 
     const removeItem = (id: string) => {
-    if (data) {
-        const removeIndex = data.filter((item: any) => {return item.id !== id});
-        setData(removeIndex)
-    } else {
-        console.log('no data in state');
-    }
-    }
+        if (data) {
+            const removeIndex = data.filter((item: any) => {return item.id !== id});
+            setData(removeIndex);
+            api.delete('api/rows/one/' + id)
+                .then((response) => {
+                    console.log(response.data)
+                    ApiData();
+                })
+                .catch((error) => console.log(error))
+        } else {
+            console.log('no data in state');
+        }
+    };
 
     useEffect(() => {
         ApiData()
     }, [])
 
     return (
-        <div className={`w-11/12 ${darkMode ? 'white-glassmorphism' : 'blue-glassmorphism'}`}>
+        <div className={`w-11/12 ${darkMode ? 'darkbluebg' : 'darkbluebg'}`}>
             <CustomInput darkMode={darkMode} data={data} setData={setData} />
             <div className="h-[1px] w-full bg-gray-400 my-2" />
             <div className="flex flex-col w-full h-full">

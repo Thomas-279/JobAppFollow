@@ -16,7 +16,7 @@ function App() {
 
   return (
     <Router>
-      <div className={`flex flex-col h-screen ${darkMode ? 'gradient-bg-welcome text-gray-50' : 'gradient-lightMode text-gray-200' }`}>
+      <div className={`flex flex-col h-screen ${darkMode ? 'darkbg text-gray-50' : 'lightbg text-gray-50' }`}>
         <div className="flex-auto">
           <div className="flex flex-col justify-between items-center h-full space-y-4">
             <Header />

@@ -21,12 +21,14 @@ const Header = () => {
         <div className="w-full flex flex-col">
             <div className='w-full flex md:justify-center justify-between items-center p-2'>
                 <div className="md:flex-[0.5] flex-initial justify-center items-center">
-                    <GiBookshelf size={50} color={darkMode ? 'F9FAFB' : '#111827'} className="w-32 cursor-pointer"/>
-                    <h1 className={`text-xl ${darkMode ? 'text-gray-50' : 'text-gray-900'}`}>JobAppFollow</h1>
+                    <Link to="/">
+                        <GiBookshelf size={50} color={darkMode ? 'F9FAFB' : '#1e222e'} className="w-32 cursor-pointer"/>
+                        <h1 className={`text-xl ${darkMode ? 'text-gray-50' : 'text-gray-900'}`}>JobAppFollow</h1>
+                    </Link>
                 </div>
                 
                 <ul className={`md:flex hidden list-none flex-row justify-between items-center flex-initial ${darkMode ? 'text-gray-50' : 'text-gray-900'}`}>
-                    <li className='text-xl font-semibold mx-4 cursor-pointer hover:border-b hover:border-white'>
+                    <li className='text-lg font-semibold mx-4 cursor-pointer hover:border-b hover:border-white'>
                         <Link to='/'>Accueil</Link>
                     </li>
                     {currentUser?.isAuthenticated ? (
@@ -34,16 +36,16 @@ const Header = () => {
                             <Link to='/jobsearch'>Mes recherches</Link>
                         </li>) :
                         (
-                        <li className='text-xl font-semibold mx-4 cursor-pointer hover:border-b hover:border-white'>
+                        <li className='text-lg font-semibold mx-4 cursor-pointer hover:border-b hover:border-white'>
                             <Link to='/demo'>Demo</Link>
                         </li>
                         )}
                     {currentUser?.isAuthenticated ? (
-                        <li className='text-xl font-semibold mx-4 cursor-pointer hover:border-b hover:border-white'>
+                        <li className='text-lg font-semibold mx-4 cursor-pointer hover:border-b hover:border-white darkredbg py-1 px-3 text-gray-50'>
                             <Link to="/login" onClick={handleLogout}>Déconnexion</Link>
                         </li>
                     ) : (
-                        <li className='text-xl font-semibold mx-4 cursor-pointer hover:border-b hover:border-white'>
+                        <li className='text-lg font-semibold mx-4 cursor-pointer hover:border-b hover:border-white lightbluebg py-1 px-3 text-gray-50'>
                             <Link to='/login'>Connexion</Link>
                         </li>
                     ) }
@@ -57,6 +59,7 @@ const Header = () => {
                     <BsFillSunFill color="yellow" size={24} />
                 </div>
             </div>
+            <div className="h-[1px] w-full bg-gray-400" />
         </div>
     )
 }
