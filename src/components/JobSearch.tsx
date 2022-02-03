@@ -8,23 +8,33 @@ import CustomRow from './shared/CustomRow';
 const JobSearch = ({ darkMode }: darkModeProps) => {
     const [data, setData] = useState([]);
     const ApiData = () => {
-        api.get('api/rows/allrows')
-            .then((response) => {
-                setData(response.data.rows);
-            })
-            .catch((error) => console.log(error))
+        const token = localStorage.getItem('auth-token');
+        if (token) {
+            const config = { headers: { 'auth-token': token}}
+            api.get('api/rows/allrows', config)
+                .then((response) => {
+                    setData(response.data.rows);
+                })
+                .catch((error) => console.log(error))
+        } else {
+            console.log('no token present, please login');
+        }
     };
 
-    const removeItem = (id: string) => {
+    const removeItem = (id: number) => {
+        const token = localStorage.getItem('auth-token');
         if (data) {
             const removeIndex = data.filter((item: any) => {return item.id !== id});
             setData(removeIndex);
-            api.delete('api/rows/one/' + id)
+            if (token) {
+                const config = { headers: { 'auth-token': token}}
+                api.delete('api/rows/one/' + id, config)
                 .then((response) => {
                     console.log(response.data)
                     ApiData();
                 })
                 .catch((error) => console.log(error))
+            }
         } else {
             console.log('no data in state');
         }

@@ -41,7 +41,7 @@ body {
 
 .darkbluebg {
   background-color: #323a5c;
-  border-radius: 12px;
+  border-radius: 8px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid #323a5c;
@@ -49,7 +49,7 @@ body {
 
 .lightbluebg {
   background-color: #3661e2;
-  border-radius: 12px;
+  border-radius: 8px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid #3661e2;
@@ -57,7 +57,7 @@ body {
 
 .darkredbg {
   background-color: #c41d1d;
-  border-radius: 12px;
+  border-radius: 8px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid #c41d1d;

@@ -39,7 +39,7 @@ const Login = ({ darkMode }: darkModeProps) => {
                     const { email, name, status, token } = response.data
                     setCurrentUser({email: email, name: name, status: status, isAuthenticated: true });
                     if (name) {
-                        localStorage.setItem('follow_job_user_token', token)
+                        localStorage.setItem('auth-token', token)
                     } else {
                         handleError('An error occurred');
                     }

@@ -35,6 +35,7 @@ export function CurrentUserProvider ({ children }: ProviderProps) {
     const handleLogout = () => {
         // remove user from local storage to log user out
         setCurrentUser(null);
+        localStorage.removeItem('auth-token');
     };
 
     const stateValues = {

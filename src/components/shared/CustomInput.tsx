@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { objectValueProps } from '../utils/types';
+import api from '../utils/api';
 
 const CustomInput = ({ data, setData, darkMode }: any) => {
     const [openInput, setOpenInput] = useState<Boolean>(false);
     const [objectValue, setObjectValue] = useState<objectValueProps>({
-            id: '',
+            id: null,
             firm: '',
             date: '',
             via: '',
@@ -28,16 +29,27 @@ const CustomInput = ({ data, setData, darkMode }: any) => {
         setData([
             ...data,
             {...objectValue}
-        ])
+        ]);
+        const token = localStorage.getItem('auth-token');
+        if (token) {
+            const config = { headers: { 'auth-token': token}}
+            api.post('api/rows/addone/', objectValue, config)
+            .then((response) => {
+                console.log('well done, job added')
+            })
+            .catch((error) => console.log(error))
+        }
+
+
         setObjectValue({
-            id: '',
+            id: null,
             firm: '',
             date: '',
             via: '',
             job: '',
             comment: '',
             status: 'waiting',
-        },)
+        })
     };
 
     return (

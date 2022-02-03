@@ -1,5 +1,5 @@
 export interface objectValueProps {
-    id: string,
+    id: any,
     firm: string,
     date: string,
     via: string,

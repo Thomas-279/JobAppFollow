@@ -9,7 +9,7 @@ import { darkModeProps } from '../components/utils/types';
 const Demo = ({ darkMode }: darkModeProps) => {
     const [data, setData] = useState(dummyData);
 
-    const removeItem = (id: string) => {
+    const removeItem = (id: number) => {
         const removeIndex = data.filter((item: any) => {return item.id !== id});
         setData(removeIndex)
     };
