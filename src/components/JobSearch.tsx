@@ -4,6 +4,7 @@ import api from './utils/api';
 
 import CustomInput from "./shared/CustomInput";
 import CustomRow from './shared/CustomRow';
+import Layout from '../components/shared/Layout';
 
 const JobSearch = ({ darkMode }: darkModeProps) => {
     const [data, setData] = useState([]);
@@ -45,7 +46,7 @@ const JobSearch = ({ darkMode }: darkModeProps) => {
     }, [])
 
     return (
-        <div className={`w-11/12 ${darkMode ? 'darkbluebg' : 'darkbluebg'}`}>
+        <Layout>
             <CustomInput darkMode={darkMode} data={data} setData={setData} />
             <div className="h-[1px] w-full bg-gray-400 my-2" />
             <div className="flex flex-col w-full h-full">
@@ -60,7 +61,7 @@ const JobSearch = ({ darkMode }: darkModeProps) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </Layout>
     )
 }
 

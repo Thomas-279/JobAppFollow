@@ -5,6 +5,7 @@ import dummyData from '../components/utils/dummyData';
 import CustomInput from "./shared/CustomInput";
 import CustomRow from './shared/CustomRow';
 import { darkModeProps } from '../components/utils/types';
+import Layout from '../components/shared/Layout';
 
 const Demo = ({ darkMode }: darkModeProps) => {
     const [data, setData] = useState(dummyData);
@@ -15,7 +16,7 @@ const Demo = ({ darkMode }: darkModeProps) => {
     };
 
     return (
-        <div className={`w-11/12 min-h-96 ${darkMode ? 'darkbluebg' : 'darkbluebg'}`}>
+        <Layout>
             <CustomInput darkMode={darkMode} data={data} setData={setData} />
             <div className="h-[1px] w-full bg-gray-400 my-2" />
             <div className="flex flex-col w-full h-full">
@@ -30,7 +31,7 @@ const Demo = ({ darkMode }: darkModeProps) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </Layout>
     )
 }
 

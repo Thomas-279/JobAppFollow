@@ -18,7 +18,7 @@ function App() {
     <Router>
       <div className={`flex flex-col min-h-screen text-gray-50 ${darkMode ? 'darkbg' : 'lightbg' }`}>
         <div className="flex-auto">
-          <div className="flex flex-col justify-between items-center space-y-10">
+          <div className="min-h-screen flex flex-col justify-between items-center space-y-10">
             <Header />
             <Routes>
               <Route path='/' element={<Home darkMode={darkMode} />} />

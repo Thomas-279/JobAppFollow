@@ -1,9 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { darkModeProps } from '../components/utils/types';
-import { CurrentUserContext, UserType } from "../Context/CurrentUserContext";
+import { CurrentUserContext } from "../Context/CurrentUserContext";
 import { UserForm } from './utils/types';
 import api from './utils/api';
+import Layout from '../components/shared/Layout';
 
 const Login = ({ darkMode }: darkModeProps) => {
     const [formData, setFormData] = useState<UserForm>({
@@ -60,7 +61,8 @@ const Login = ({ darkMode }: darkModeProps) => {
     }
     
     return (
-            <form onSubmit={handleSubmit} className='w-11/12 h-96 flex flex-col justify-evenly darkbluebg'>
+        <Layout>
+            <form onSubmit={handleSubmit} className='w-full h-96 flex flex-col justify-center'>
                 <div className='flex flex-col justify-center'>
                     <div className="flex flex-col items-center mb-5">
                         <input placeholder="Login" type="text" className={`w-3/12 ${darkMode ? 'darkbg text-gray-50' : 'lightbg text-gray-900'} px-4 rounded-lg p-2`} name="email" value={formData?.email} onChange={handleChange} />
@@ -73,6 +75,7 @@ const Login = ({ darkMode }: darkModeProps) => {
                     <button type="submit" className="w-1/12 bluebg rounded-lg py-2" disabled={isSubmitting}> {isSubmitting ? "Submitting..." : "Register"}</button>
                 </div>
             </form>
+        </Layout>
     )
 }
 
