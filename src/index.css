@@ -28,7 +28,7 @@ body {
 }
 
 .darkbg {
-  background-color: #222735;
+  background-color: #02040f;
 }
 
 .lightbg {
@@ -36,31 +36,31 @@ body {
 }
 
 .bluebg {
-  background-color: #3661e2;
+  background-color: #e59500;
 }
 
 .darkbluebg {
-  background-color: #323a5c;
+  background-color: #002642;
   border-radius: 8px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid #323a5c;
+  border: 1px solid #002642;
 }
 
 .lightbluebg {
-  background-color: #3661e2;
+  background-color: #e59500;
   border-radius: 8px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid #3661e2;
+  border: 1px solid #e59500;
 }
 
 .darkredbg {
-  background-color: #c41d1d;
+  background-color: #840032;
   border-radius: 8px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid #c41d1d;
+  border: 1px solid #840032;
 }
 
 .toggle-checkbox:checked {

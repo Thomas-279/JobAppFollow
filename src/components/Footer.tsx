@@ -1,8 +1,11 @@
 import React from "react"
+import { darkModeProps } from '../components/utils/types';
 
-const Footer = () => {
+const Footer = ({ darkMode }: darkModeProps) => {
     return (
-        <div className='text-xs'>JobAppFollow 2021 - Made with coffee by Thomas GARRAUT</div>
+        <div className="bottom-0">
+            <p className={`text-xs ${darkMode ? 'text-gray-50' : 'text-gray-900' }`}>2022 - Made with ☕ by Thomas GARRAUT</p>
+        </div>
     )
 }
 

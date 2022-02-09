@@ -15,32 +15,20 @@ const Demo = ({ darkMode }: darkModeProps) => {
     };
 
     return (
-        <div className={`w-11/12 ${darkMode ? 'darkbluebg' : 'darkbluebg'}`}>
+        <div className={`w-11/12 min-h-96 ${darkMode ? 'darkbluebg' : 'darkbluebg'}`}>
             <CustomInput darkMode={darkMode} data={data} setData={setData} />
             <div className="h-[1px] w-full bg-gray-400 my-2" />
             <div className="flex flex-col w-full h-full">
-                <table className="flex flex-col w-full h-1/6">
-                    <thead className="flex flex-col w-full">
-                        <tr className="w-full flex flex-row justify-between items-center text-sm md:text-base">
-                            <th className='w-1/12'>Numéro</th>
-                            <th className='w-1/12'>Date</th>
-                            <th className='w-1/12'>Société</th>
-                            <th className='w-2/12'>Via plateforme</th>
-                            <th className='w-2/12'>Job</th>
-                            <th className='w-2/12'>Commentaire</th>
-                            <th className='w-1/12'>Statut</th>
-                            <th className='w-1/12'>Actions</th>
-                        </tr>
-                        <tr className="h-[1px] w-full bg-gray-400 my-2" />
-                    </thead>
-                    <tbody className="flex flex-col w-full h-1/6 mt-5 mb-5">
-                        {data.map((item: any) => (
-                            <tr key={item.id} className="w-full flex flex-row justify-between">
+                <div className="flex flex-col w-full h-1/6">
+                    <div className="flex flex-col w-full h-1/6 mt-5 mb-5">
+                    {data.map((item: any) => (
+                            <div key={item.id} className="w-full flex flex-col justify-between">
                                 <CustomRow item={item} onRemove={removeItem} />
-                            </tr>
+                                <div className="h-[1px] w-full bg-gray-400 my-2"/>
+                            </div>
                         ))}
-                    </tbody>
-                </table>
+                    </div>
+                </div>
             </div>
         </div>
     )

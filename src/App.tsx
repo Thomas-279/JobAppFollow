@@ -16,9 +16,9 @@ function App() {
 
   return (
     <Router>
-      <div className={`flex flex-col h-screen ${darkMode ? 'darkbg text-gray-50' : 'lightbg text-gray-50' }`}>
+      <div className={`flex flex-col min-h-screen text-gray-50 ${darkMode ? 'darkbg' : 'lightbg' }`}>
         <div className="flex-auto">
-          <div className="flex flex-col justify-between items-center h-full space-y-4">
+          <div className="flex flex-col justify-between items-center space-y-10">
             <Header />
             <Routes>
               <Route path='/' element={<Home darkMode={darkMode} />} />
@@ -29,7 +29,7 @@ function App() {
               }
               <Route path='/*' element={<Error darkMode={darkMode} />} />
             </Routes>
-            <Footer />
+            <Footer darkMode={darkMode} />
           </div>
         </div>
       </div>

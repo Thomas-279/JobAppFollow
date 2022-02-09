@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+import api from '../components/utils/api';
 
 export type UserType = {
     email: string,
@@ -9,7 +10,6 @@ export type UserType = {
 export type UserContextType = {
     currentUser?: UserType,
     setCurrentUser: (user: UserType) => void,
-    checkLogin: () => void,
     setAuthLoading: (isLoading: boolean) => void,
     authLoading: boolean,
     handleLogout: () => void,
@@ -22,15 +22,7 @@ type ProviderProps = {
 }
 export function CurrentUserProvider ({ children }: ProviderProps) {
     const [currentUser, setCurrentUser] = useState<UserType>();
-    const [authLoading, setAuthLoading] = useState(false);
-
-    useEffect(() => {
-        checkLogin();
-    }, []);
-
-    const checkLogin = () => {
-        console.log("checkLogin")
-    };
+    const [authLoading, setAuthLoading] = useState(true);
 
     const handleLogout = () => {
         // remove user from local storage to log user out
@@ -41,7 +33,6 @@ export function CurrentUserProvider ({ children }: ProviderProps) {
     const stateValues = {
         currentUser,
         setCurrentUser,
-        checkLogin,
         setAuthLoading,
         authLoading,
         handleLogout

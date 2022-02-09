@@ -28,15 +28,15 @@ const Header = () => {
                 </div>
                 
                 <ul className={`md:flex hidden list-none flex-row justify-between items-center flex-initial ${darkMode ? 'text-gray-50' : 'text-gray-900'}`}>
-                    <li className='text-lg font-semibold mx-4 cursor-pointer hover:border-b hover:border-white'>
+                    <li className={`text-lg font-semibold mx-4 cursor-pointer hover:border-b ${darkMode ? 'hover:border-gray-50' : 'hover:border-gray-900'}`}>
                         <Link to='/'>Accueil</Link>
                     </li>
                     {currentUser?.isAuthenticated ? (
-                        <li className='text-xl font-semibold mx-4 cursor-pointer hover:border-b hover:border-white'>
+                        <li className={`text-lg font-semibold mx-4 cursor-pointer hover:border-b ${darkMode ? 'hover:border-gray-50' : 'hover:border-gray-900'}`}>
                             <Link to='/jobsearch'>Mes recherches</Link>
                         </li>) :
                         (
-                        <li className='text-lg font-semibold mx-4 cursor-pointer hover:border-b hover:border-white'>
+                            <li className={`text-lg font-semibold mx-4 cursor-pointer hover:border-b ${darkMode ? 'hover:border-gray-50' : 'hover:border-gray-900'}`}>
                             <Link to='/demo'>Demo</Link>
                         </li>
                         )}
@@ -56,7 +56,7 @@ const Header = () => {
                         <input type="checkbox" name="toggle" id="toggle" className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" onChange={onChangeMode} />
                         <label htmlFor="toggle" className="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
                     </div>
-                    <BsFillSunFill color="yellow" size={24} />
+                    <BsFillSunFill color="#e59500" size={24} />
                 </div>
             </div>
             <div className="h-[1px] w-full bg-gray-400" />
