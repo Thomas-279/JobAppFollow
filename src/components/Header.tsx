@@ -45,7 +45,7 @@ const Header = () => {
                             <Link to="/login" onClick={handleLogout}>Déconnexion</Link>
                         </li>
                     ) : (
-                        <li className='text-lg font-semibold mx-4 cursor-pointer hover:border-b hover:border-white lightbluebg py-1 px-3 text-gray-50'>
+                        <li className='text-lg font-semibold mx-4 cursor-pointer hover:border-b hover:border-white lightorangebg py-1 px-3 text-gray-50'>
                             <Link to='/login'>Connexion</Link>
                         </li>
                     ) }

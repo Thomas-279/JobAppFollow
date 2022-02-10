@@ -72,7 +72,7 @@ const Login = ({ darkMode }: darkModeProps) => {
                     </div>
                 </div>
                 <div className='flex flex-col items-center mb-5'>
-                    <button type="submit" className="w-1/12 bluebg rounded-lg py-2" disabled={isSubmitting}> {isSubmitting ? "Submitting..." : "Register"}</button>
+                    <button type="submit" className="w-1/12 orangebg rounded-lg py-2" disabled={isSubmitting}> {isSubmitting ? "Submitting..." : "Register"}</button>
                 </div>
             </form>
         </Layout>
