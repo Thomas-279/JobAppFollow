@@ -5,6 +5,7 @@ import { CurrentUserContext } from "../Context/CurrentUserContext";
 import { UserForm } from './utils/types';
 import api from './utils/api';
 import Layout from '../components/shared/Layout';
+import Button from '../components/shared/Button';
 
 const Login = ({ darkMode }: darkModeProps) => {
     const [formData, setFormData] = useState<UserForm>({
@@ -55,7 +56,7 @@ const Login = ({ darkMode }: darkModeProps) => {
                     });
                 });
         }  else {
-            handleError('Please fill out all fileds');
+            handleError('Veuillez remplir les champs');
             setFormData({... formData});
         }
     }
@@ -65,14 +66,14 @@ const Login = ({ darkMode }: darkModeProps) => {
             <form onSubmit={handleSubmit} className='w-full h-96 flex flex-col justify-center'>
                 <div className='flex flex-col justify-center'>
                     <div className="flex flex-col items-center mb-5">
-                        <input placeholder="Login" type="text" className={`w-3/12 ${darkMode ? 'darkbg text-gray-50' : 'lightbg text-gray-900'} px-4 rounded-lg p-2`} name="email" value={formData?.email} onChange={handleChange} />
+                        <input placeholder="Login" type="text" className={`w-10/12 md:w-3/12 ${darkMode ? 'darkbg text-gray-50' : 'lightbg text-gray-900'} px-4 rounded-lg p-2`} name="email" value={formData?.email} onChange={handleChange} />
                     </div>
                     <div className="flex flex-col items-center mb-5">
-                        <input placeholder="Password" type="password" className={`w-3/12 ${darkMode ? 'darkbg text-gray-50' : 'lightbg text-gray-900'} px-4 rounded-lg p-2`} name="password" value={formData?.password} onChange={handleChange} />
+                        <input placeholder="Password" type="password" className={`w-10/12 md:w-3/12 ${darkMode ? 'darkbg text-gray-50' : 'lightbg text-gray-900'} px-4 rounded-lg p-2`} name="password" value={formData?.password} onChange={handleChange} />
                     </div>
                 </div>
-                <div className='flex flex-col items-center mb-5'>
-                    <button type="submit" className="w-1/12 orangebg rounded-lg py-2" disabled={isSubmitting}> {isSubmitting ? "Submitting..." : "Register"}</button>
+                <div>
+                    <Button isSubmitting={isSubmitting} color='orangebg' />
                 </div>
             </form>
         </Layout>

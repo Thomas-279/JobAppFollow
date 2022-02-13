@@ -16,7 +16,7 @@ const Home = ({ darkMode }: darkModeProps) => {
                 <div className="flex flex-col justify-center items-center mt-4 w-11/12 text-center">
                     <p className="text-base">Sur cet outil, vous aurez la possibilité d'ajouter et supprimer vos différentes recherches actuelles ou passées, ce afin de suivre votre recherche d'emploi.</p>
                 </div>
-                <div className='w-1/2 flex flex-row justify-around items-start'>
+                <div className='w-1/2 flex flex-row justify-between md:justify-around items-start'>
                     <BsSearch size={40} color='#e59500' className='rotate-90' />
                     <BsSearch size={40} color='#e59500' />
                 </div>

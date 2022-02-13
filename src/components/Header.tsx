@@ -18,8 +18,8 @@ const Header = () => {
         }
     };
     return (
-        <div className="w-full flex flex-col">
-            <div className='w-full flex md:justify-center justify-between items-center p-2'>
+        <header className="w-full flex flex-col">
+            <div className='w-full flex md:justify-center justify-between items-center p-4'>
                 <div className="md:flex-[0.5] flex-initial justify-center items-center">
                     <Link to="/">
                         <GiBookshelf size={50} color={darkMode ? 'F9FAFB' : '#1e222e'} className="w-32 cursor-pointer"/>
@@ -27,16 +27,16 @@ const Header = () => {
                     </Link>
                 </div>
                 
-                <ul className={`md:flex hidden list-none flex-row justify-between items-center flex-initial ${darkMode ? 'text-gray-50' : 'text-gray-900'}`}>
-                    <li className={`text-lg font-semibold mx-4 cursor-pointer hover:border-b ${darkMode ? 'hover:border-gray-50' : 'hover:border-gray-900'}`}>
+                <ul className={`md:flex list-none md:flex-row justify-between items-center flex-initial ${darkMode ? 'text-gray-50' : 'text-gray-900'}`}>
+                    <li className={`text-lg font-semibold mx-4 cursor-pointer md:hover:border-b ${darkMode ? 'hover:border-gray-50' : 'hover:border-gray-900'}`}>
                         <Link to='/'>Accueil</Link>
                     </li>
                     {currentUser?.isAuthenticated ? (
-                        <li className={`text-lg font-semibold mx-4 cursor-pointer hover:border-b ${darkMode ? 'hover:border-gray-50' : 'hover:border-gray-900'}`}>
+                        <li className={`text-lg font-semibold mx-4 cursor-pointer md:hover:border-b ${darkMode ? 'hover:border-gray-50' : 'hover:border-gray-900'}`}>
                             <Link to='/jobsearch'>Mes recherches</Link>
                         </li>) :
                         (
-                            <li className={`text-lg font-semibold mx-4 cursor-pointer hover:border-b ${darkMode ? 'hover:border-gray-50' : 'hover:border-gray-900'}`}>
+                            <li className={`text-lg font-semibold mx-4 cursor-pointer md:hover:border-b ${darkMode ? 'hover:border-gray-50' : 'hover:border-gray-900'}`}>
                             <Link to='/demo'>Demo</Link>
                         </li>
                         )}
@@ -48,19 +48,22 @@ const Header = () => {
                         <li className='text-lg font-semibold mx-4 cursor-pointer hover:border-b hover:border-white lightorangebg py-1 px-3 text-gray-50'>
                             <Link to='/login'>Connexion</Link>
                         </li>
-                    ) }
+                    )}
                 </ul>
-                <div className="w-1/6 flex flex-row justify-end items-center">
-                    <BsFillMoonFill color="grey" size={20} />
-                    <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in mx-2">
-                        <input type="checkbox" name="toggle" id="toggle" className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" onChange={onChangeMode} />
-                        <label htmlFor="toggle" className="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
-                    </div>
-                    <BsFillSunFill color="#e59500" size={24} />
+                <div className="w-1/6 flex flex-row justify-center items-center mr-2 md:mr-0">
+                    {darkMode ? (
+                        <div>
+                            <BsFillSunFill color="#e59500" size={24} onClick={onChangeMode}/>
+                        </div>
+                    ) : (
+                        <div>
+                            <BsFillMoonFill color="grey" size={24} onClick={onChangeMode}/>
+                        </div>
+                    )}
                 </div>
             </div>
             <div className="h-[1px] w-full bg-gray-400" />
-        </div>
+        </header>
     )
 }
 

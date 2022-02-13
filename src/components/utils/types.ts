@@ -17,3 +17,8 @@ export interface UserForm {
     email: string;
     password: string;
 };
+
+export interface ButtonProps {
+    color: string,
+    isSubmitting: boolean,
+}
