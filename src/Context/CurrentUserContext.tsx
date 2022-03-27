@@ -1,5 +1,5 @@
-import React, { createContext, useEffect, useState } from "react";
-import api from '../components/utils/api';
+import React, { createContext, useState } from "react";
+import api from '../components/utilities/api';
 
 export type UserType = {
     email: string,

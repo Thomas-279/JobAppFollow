@@ -2,8 +2,8 @@ import React, { useContext } from "react"
 import { Link } from 'react-router-dom';
 import { GiBookshelf } from 'react-icons/gi';
 import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
-import { ThemeContext } from "../Context/ThemeContext";
-import { CurrentUserContext } from '../Context/CurrentUserContext';
+import { ThemeContext } from "../../../Context/ThemeContext";
+import { CurrentUserContext } from '../../../Context/CurrentUserContext';
 
 const Header = () => {
     const theme = useContext(ThemeContext);

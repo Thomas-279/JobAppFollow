@@ -1,13 +1,17 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { darkModeProps } from '../components/utils/types';
-import { CurrentUserContext } from "../Context/CurrentUserContext";
-import { UserForm } from './utils/types';
-import api from './utils/api';
-import Layout from '../components/shared/Layout';
-import Button from '../components/shared/Button';
+import { darkModeProps } from '../../utilities/types';
+import { CurrentUserContext } from "../../../Context/CurrentUserContext";
+import { UserForm } from '../../utilities/types';
+import api from '../../utilities/api';
+import Layout from '../ui/Layout';
+import Button from '../ui/Button';
 
-const Login = ({ darkMode }: darkModeProps) => {
+type LoginProps = {
+    darkMode: darkModeProps;
+}
+
+const Login = ({ darkMode }: LoginProps) => {
     const [formData, setFormData] = useState<UserForm>({
         isSubmitting: false,
         email: "",

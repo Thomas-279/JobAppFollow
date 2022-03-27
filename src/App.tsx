@@ -7,9 +7,9 @@ import {
 import { ThemeContext } from "./Context/ThemeContext";
 import { CurrentUserContext } from './Context/CurrentUserContext';
 
-import { Header, Demo, Footer, Home, Login, JobSearch, Error } from './components';
+import { Header, Demo, Footer, Home, Login, JobSearch, Error } from './components/shared';
 
-function App() {
+const App = () => {
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
   const { currentUser } = useContext(CurrentUserContext);

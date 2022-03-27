@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 
-import dummyData from '../components/utils/dummyData';
+import dummyData from '../../utilities/dummyData';
 
-import CustomInput from "./shared/CustomInput";
-import CustomRow from './shared/CustomRow';
-import { darkModeProps } from '../components/utils/types';
-import Layout from '../components/shared/Layout';
+import CustomInput from "../ui/CustomInput";
+import CustomRow from '../ui/CustomRow';
+import { darkModeProps, Row } from '../../utilities/types';
+import Layout from '../ui/Layout';
 
-const Demo = ({ darkMode }: darkModeProps) => {
-    const [data, setData] = useState(dummyData);
+type DemoProps = {
+    darkMode: darkModeProps;
+}
+
+const Demo = ({ darkMode }: DemoProps) => {
+    const [data, setData] = useState<Row[]>(dummyData);
 
     const removeItem = (id: number) => {
         const removeIndex = data.filter((item: any) => {return item.id !== id});

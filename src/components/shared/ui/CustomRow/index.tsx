@@ -5,8 +5,14 @@ import { FcCheckmark } from 'react-icons/fc';
 import { AiOutlineClose } from 'react-icons/ai';
 import { BsHourglass } from 'react-icons/bs';
 import { FaTrash } from 'react-icons/fa';
+import { Row } from '../../../utilities/types';
 
-const CustomRow = ({ item, onRemove }: any) => {
+type CustomRowProps = {
+    item: Row;
+    onRemove: (a: number) => void;
+}
+
+const CustomRow = ({ item, onRemove }: CustomRowProps) => {
     return (
         <div className="w-full h-32 flex flex-row justify-between text-xs md:text-base">
             <div className="w-1/12 flex flex-col justify-around items-center p-4">

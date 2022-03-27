@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { darkModeProps } from '../components/utils/types';
-import api from './utils/api';
+import { darkModeProps, Row } from '../../utilities/types';
+import api from '../../utilities/api';
 
-import CustomInput from "./shared/CustomInput";
-import CustomRow from './shared/CustomRow';
-import Layout from '../components/shared/Layout';
+import CustomInput from "../ui/CustomInput";
+import CustomRow from '../ui/CustomRow';
+import Layout from '../ui/Layout';
 
-const JobSearch = ({ darkMode }: darkModeProps) => {
-    const [data, setData] = useState([]);
+type JobSearchProps = {
+    darkMode: darkModeProps
+}
+
+const JobSearch = ({ darkMode }: JobSearchProps) => {
+    const [data, setData] = useState<Row[]>([]);
     const ApiData = () => {
         const token = localStorage.getItem('auth-token');
         if (token) {

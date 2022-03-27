@@ -1,10 +1,17 @@
 import React, { useState, useContext } from 'react';
-import { objectValueProps } from '../utils/types';
-import { CurrentUserContext } from '../../Context/CurrentUserContext';
-import api from '../utils/api';
-import Loader from './Loader';
+import { objectValueProps } from '../../../utilities/types';
+import { CurrentUserContext } from '../../../../Context/CurrentUserContext';
+import api from '../../../utilities/api';
+import Loader from '../Loader';
+import { darkModeProps } from '../../../utilities/types';
 
-const CustomInput = ({ data, setData, darkMode }: any) => {
+type CustomInputProps = {
+    darkMode: darkModeProps;
+    setData: any;
+    data: any;
+}
+
+const CustomInput = ({ data, setData, darkMode }: CustomInputProps) => {
     const { currentUser } = useContext(CurrentUserContext);
     const [openInput, setOpenInput] = useState<Boolean>(false);
     const [isLoading, setIsLoading] = useState<Boolean>(false)

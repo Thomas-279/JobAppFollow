@@ -1,6 +1,6 @@
 import React from 'react';
-import { darkModeProps } from '../components/utils/types';
-import Layout from '../components/shared/Layout';
+import { darkModeProps } from '../../utilities/types';
+import Layout from '../ui/Layout';
 
 const Error = ({ darkMode }: darkModeProps) => {
     return (

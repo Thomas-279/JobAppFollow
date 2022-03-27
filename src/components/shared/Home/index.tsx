@@ -1,10 +1,14 @@
 import React, { useContext } from 'react';
-import { darkModeProps } from '../components/utils/types';
-import { CurrentUserContext } from '../Context/CurrentUserContext';
+import { darkModeProps } from '../../utilities/types';
+import { CurrentUserContext } from '../../../Context/CurrentUserContext';
 import { BsSearch } from 'react-icons/bs'
-import Layout from '../components/shared/Layout';
+import Layout from '../ui/Layout';
 
-const Home = ({ darkMode }: darkModeProps) => {
+type HomeProps = {
+    darkMode: darkModeProps
+}
+
+const Home = ({ darkMode }: HomeProps) => {
     const { currentUser } = useContext(CurrentUserContext);
     return (
         <Layout>

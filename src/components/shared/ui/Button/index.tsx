@@ -1,5 +1,9 @@
 import React from 'react';
-import { ButtonProps } from '../utils/types';
+
+type ButtonProps = {
+    color: string,
+    isSubmitting: boolean,
+}
 
 const Button = ({color, isSubmitting}: ButtonProps) => {
     return(

@@ -1,3 +1,5 @@
+import { Stringifier } from "postcss";
+
 export interface objectValueProps {
     id: any,
     firm: string,
@@ -18,7 +20,20 @@ export interface UserForm {
     password: string;
 };
 
-export interface ButtonProps {
-    color: string,
-    isSubmitting: boolean,
+export interface User {
+    id: string;
+    name: string;
+    email: string;
+    password: string;
+    status: string;
+}
+
+export interface Row {
+    id: number;
+    firm: string;
+    date: string;
+    via: string;
+    job: string;
+    comment: string;
+    status: string;
 }
